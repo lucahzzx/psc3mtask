@@ -1,6 +1,7 @@
 package views.usuario;
 
 import models.Usuario;
+import utils.ButtonEditor.ButtonEditor;
 import utils.ButtonRenderer;
 
 import javax.swing.*;
@@ -26,6 +27,9 @@ public class UsuarioListFrame extends JPanel {
         table.getColumn("Editar").setCellRenderer(new ButtonRenderer());
 
         table.getColumn("Excluir").setCellRenderer(new ButtonRenderer());
+    table.getColumn("Excluir").setCellEditor(
+            new ButtonEditor(table, row -> removeUser());
+
 
         JScrollPane scrollPane = new JScrollPane(table);
 
@@ -42,7 +46,9 @@ public class UsuarioListFrame extends JPanel {
         add(panelBtn, BorderLayout.SOUTH);
     }
 
-    private void loadUsuarios(){
-
+    private Object removeUser() {
+        Usuario user = removeUser();
     }
+
+
 }
